@@ -1,6 +1,98 @@
 {
+  "menubar1": {
+    "en": "Register Name",
+    "th": "ตรวจสอบรายชื่อ"
+  },
+  "menubar2": {
+    "en": "Vaccine Register",
+    "th": "ลงทะเบียนรับวัคซีน"
+  },
   "register.vaccine.title": {
     "en": "Register Vaccine Covid19",
     "th": "ลงทะเบียนรับวัคซีนโควิต19"
+  },
+  "register.vaccine.title.info": {
+    "en": "Information",
+    "th": "ข้อมูลทั่วไป"
+  },
+  "register.vaccine.title.emergencyCall": {
+    "en": "Emergency Call",
+    "th": "ผู้ติดต่อฉุกเฉิน"
+  },
+  "register.vaccine.name": {
+    "en": "name",
+    "th": "ชื่อ"
+  },
+  "register.vaccine.name.placeholder": {
+    "en": "name",
+    "th": "ชื่อ"
+  },
+  "register.vaccine.lastname": {
+    "en": "lastname",
+    "th": "นามสกุล"
+  },
+  "register.vaccine.lastname.placeholder": {
+    "en": "lastname",
+    "th": "นามสกุล"
+  },
+  "register.vaccine.birthDate": {
+    "en": "birthdate",
+    "th": "วันเกิด"
+  },
+  "register.vaccine.placeholder": {
+    "en": "birthdate",
+    "th": "วันเกิด"
+  },
+  "register.vaccine.age": {
+    "en": "age",
+    "th": "อายุ"
+  },
+  "register.vaccine.age.placeholder": {
+    "en": "age",
+    "th": "อายุ"
+  },
+  "register.vaccine.nationalId": {
+    "en": "national-id",
+    "th": "บัตรประชาชน"
+  },
+  "register.vaccine.nationalId.placeholder": {
+    "en": "national-id",
+    "th": "บัตรประชาชน"
+  },
+  "register.vaccine.phoneNumber": {
+    "en": "tel",
+    "th": "โทร"
+  },
+  "register.vaccine.phoneNumber.placeholder": {
+    "en": "tel",
+    "th": "โทร"
+  },
+  "register.vaccine.address": {
+    "en": "adress",
+    "th": "ที่อยู่"
+  },
+  "register.vaccine.address.placeholder": {
+    "en": "adress",
+    "th": "ที่อยู่"
+  },
+  "register.vaccine.postalCode": {
+    "en": "postalcode",
+    "th": "รหัสไปรษณีย์"
+  },
+  "register.vaccine.postalCode.placeholder": {
+    "en": "postalcode",
+    "th": "รหัสไปรษณีย์"
+  },
+  "register.vaccine.nationalIdImage": {
+    "en": "image(national-id)",
+    "th": "รูป(บัตรประชาชน)"
+  },
+  "register.vaccine.button.save": {
+    "en": "save",
+    "th": "บันทึก"
+  },
+  "register.vaccine.button.cancel": {
+    "en": "cancel",
+    "th": "ยกเลิก"
   }
 }

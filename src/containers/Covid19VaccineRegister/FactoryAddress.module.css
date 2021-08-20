@@ -1,0 +1,50 @@
+.screenContainer {
+  /* width: "100vw";
+   height: "100vh"; */
+  display: "flex";
+  margin: "30px 100px 0px";
+  /* boxShadow: "1px 4px 1px 1px #888888"; */
+  justify-content: "center";
+  flex-direction: "column";
+}
+.mainTitle {
+  font-size: 24;
+  font-weight: 500;
+  display: "flex";
+  justify-content: "center";
+  margin-bottom: 10;
+}
+.title {
+  font-size: 20;
+  font-weight: 500;
+  padding: "10px 20px";
+  margin-bottom: 30;
+  border-bottom: "1px solid rgb(229 229 229)";
+}
+.section {
+  margin-top: 20;
+  box-shadow: "1px 1px 1px 2px rgb(229 229 229)";
+  padding-bottom: 20;
+}
+.loading {
+  width: "100vw";
+  height: "100vh";
+  display: "flex";
+  align-items: "center";
+  justify-content: "center";
+}
+.containerForm {
+  padding-right: 80;
+}
+.footer {
+  position: "fixed";
+  bottom: 10;
+  left: 0;
+  padding-right: 40;
+  background-color: "black";
+  width: "100vw";
+  height: 50;
+  display: "flex";
+  justify-content: "flex-end";
+  align-items: "center";
+}

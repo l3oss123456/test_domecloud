@@ -1,9 +1,17 @@
+import styled from "styled-components";
+
 export default {
-  screenContainer: {
-    width: "100vw",
-    height: "100vh",
-    display: "flex",
-    margin: "30px 0px",
-    justifyContent: "center",
-  },
+  screenContainer: styled.div`
+    margin: 30px 100px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  `,
+  loading: styled.div`
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `,
 };

@@ -1,6 +1,13 @@
 import store from "../store";
-import axios from "../cores/axios/index";
-// import axios from "axios";
+// import axios from "../cores/axios/index";
+import {
+  firebase_push,
+  firebase_readdata,
+  firebase_update,
+  firebase_delete,
+} from "../cores/firebase/index";
+
+const firebaseRef = "vaccineRegister";
 
 export const fetch_post = () => {
   return {
@@ -22,50 +29,53 @@ export const receive_error = (error) => {
   };
 };
 
-export const createCovidVaccineRegister = (data) => {
+export const getCovidVaccineRegister = () => {
   store.dispatch(fetch_post());
   return async (dispatch, getState) => {
     try {
-      let _covidVaccineRegister = getState().covidVaccineRegister;
-      _covidVaccineRegister.data = [..._covidVaccineRegister.data, data];
-      console.log("_covidVaccineRegister", _covidVaccineRegister.data);
-      dispatch(receive_post(_covidVaccineRegister));
-      // const resp = await axios("get", `https://api.github.com/users/${user}`);
-      // if (resp.status === 200) {
-      //   dispatch(receive_post(resp.data));
-      // } else {
-      //   dispatch(receive_error("error"));
-      // }
+      const data = await firebase_readdata(firebaseRef);
+      dispatch(receive_post(data));
     } catch (error) {
       dispatch(receive_error(error));
     }
   };
-  // const user = username.replace(/\s/g, "");
-  // return async (dispatch, getState) => {
-  //   try {
-  //     const resp = await axios("get", `https://api.github.com/users/${user}`);
-  //     if (resp.status === 200) {
-  //       dispatch(receive_post(resp.data));
-  //     } else {
-  //       dispatch(receive_error("error"));
-  //     }
-  //   } catch (error) {
-  //     dispatch(receive_error(error));
-  //   }
-  // };
 };
 
-// export const thunk_action_creator = (username) => {
-//   const user = username.replace(/\s/g, "");
-//   store.dispatch(fetch_post());
-//   return function (dispatch, getState) {
-//     return fetch(`https://api.github.com/users/${user}`)
-//       .then((data) => data.json())
-//       .then((data) => {
-//         if (data.message === "Not Found") {
-//           throw new Error("No such user found!");
-//         } else dispatch(receive_post(data));
-//       })
-//       .catch((err) => dispatch(receive_error()));
-//   };
-// };
+export const createCovidVaccineRegister = (data) => {
+  store.dispatch(fetch_post());
+  return async (dispatch, getState) => {
+    try {
+      firebase_push(data, firebaseRef);
+      const firebase_data = await firebase_readdata(firebaseRef);
+      dispatch(receive_post(firebase_data));
+    } catch (error) {
+      dispatch(receive_error(error));
+    }
+  };
+};
+
+export const editCovidVaccineRegister = (key, data) => {
+  store.dispatch(fetch_post());
+  return async (dispatch, getState) => {
+    try {
+      firebase_update(key, data, firebaseRef);
+      const firebase_data = await firebase_readdata(firebaseRef);
+      dispatch(receive_post(firebase_data));
+    } catch (error) {
+      dispatch(receive_error(error));
+    }
+  };
+};
+
+export const deleteCovidVaccineRegister = (key) => {
+  store.dispatch(fetch_post());
+  return async (dispatch, getState) => {
+    try {
+      firebase_delete(key, firebaseRef);
+      const firebase_data = await firebase_readdata(firebaseRef);
+      dispatch(receive_post(firebase_data));
+    } catch (error) {
+      dispatch(receive_error(error));
+    }
+  };
+};
