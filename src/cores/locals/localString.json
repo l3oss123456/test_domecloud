@@ -1,4 +1,16 @@
 {
+  "validate.error.message.specialCharacterAndSpace": {
+    "en": "This field can't contain special characters or spaces.",
+    "th": "ไม่สามารถใส่ตัวอักษรพิเศษหรือช่องว่าง"
+  },
+  "validate.error.message.minCharacter": {
+    "en": "This field must have {min} characters.",
+    "th": "ต้องมีข้อมูลอย่างน้อย {min} ตัวอักษร"
+  },
+  "validate.error.message.inputOnlyNumber": {
+    "en": "This field can input only number.",
+    "th": "ใส่ข้อมูลได้เพียงตัวเลขเท่านั้น"
+  },
   "menubar1": {
     "en": "Register Name",
     "th": "ตรวจสอบรายชื่อ"
@@ -27,6 +39,10 @@
     "en": "name",
     "th": "ชื่อ"
   },
+  "register.vaccine.name.error": {
+    "en": "Please input name.",
+    "th": "กรุณาใส่ชื่อ"
+  },
   "register.vaccine.lastname": {
     "en": "lastname",
     "th": "นามสกุล"
@@ -35,13 +51,21 @@
     "en": "lastname",
     "th": "นามสกุล"
   },
+  "register.vaccine.lastname.error": {
+    "en": "Please input lastname.",
+    "th": "กรุณาใส่นามสกุล"
+  },
   "register.vaccine.birthDate": {
     "en": "birthdate",
     "th": "วันเกิด"
   },
-  "register.vaccine.placeholder": {
+  "register.vaccine.birthDate.placeholder": {
     "en": "birthdate",
     "th": "วันเกิด"
+  },
+  "register.vaccine.birthDate.error": {
+    "en": "Please input birthdate.",
+    "th": "กรุณาใส่วันเกิด"
   },
   "register.vaccine.age": {
     "en": "age",
@@ -51,13 +75,21 @@
     "en": "age",
     "th": "อายุ"
   },
+  "register.vaccine.age.error": {
+    "en": "Please input age.",
+    "th": "กรุณาใส่อายุ"
+  },
   "register.vaccine.nationalId": {
-    "en": "national-id",
+    "en": "national id",
     "th": "บัตรประชาชน"
   },
   "register.vaccine.nationalId.placeholder": {
-    "en": "national-id",
+    "en": "national id",
     "th": "บัตรประชาชน"
+  },
+  "register.vaccine.nationalId.error": {
+    "en": "Please enter national id.",
+    "th": "กรุณาใส่บัตรประชาชน"
   },
   "register.vaccine.phoneNumber": {
     "en": "tel",
@@ -67,6 +99,10 @@
     "en": "tel",
     "th": "โทร"
   },
+  "register.vaccine.phoneNumber.error": {
+    "en": "Please input phone number.",
+    "th": "กรุณาใส่เบอร์โทรศัพท์"
+  },
   "register.vaccine.address": {
     "en": "adress",
     "th": "ที่อยู่"
@@ -74,6 +110,10 @@
   "register.vaccine.address.placeholder": {
     "en": "adress",
     "th": "ที่อยู่"
+  },
+  "register.vaccine.address.error": {
+    "en": "Please input adress.",
+    "th": "กรุณาใส่ที่อยู่"
   },
   "register.vaccine.postalCode": {
     "en": "postalcode",
@@ -83,9 +123,17 @@
     "en": "postalcode",
     "th": "รหัสไปรษณีย์"
   },
+  "register.vaccine.postalCode.error": {
+    "en": "Please input postalcode.",
+    "th": "กรุณาใส่รหัสไปรษณีย์"
+  },
   "register.vaccine.nationalIdImage": {
-    "en": "image(national-id)",
+    "en": "image(national id)",
     "th": "รูป(บัตรประชาชน)"
+  },
+  "register.vaccine.nationalIdImage.error": {
+    "en": "Please input image(national id).",
+    "th": "กรุณาใส่รูป(บัตรประชาชน)"
   },
   "register.vaccine.button.save": {
     "en": "save",

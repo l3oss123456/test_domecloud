@@ -26,6 +26,7 @@ const renderInputText = (item, index) => {
     rule,
     // type,
     responsive_span,
+    cleaveOptions,
   } = item;
 
   return (
@@ -41,59 +42,71 @@ const renderInputText = (item, index) => {
     >
       {/* {label} : */}
       <Form.Item name={name} rules={rule} label={label}>
-        <Input
-          type="text"
-          placeholder={placeholder}
-          onChange={onChange}
-          maxLength={maxLength}
-          disabled={!editable}
-        />
+        {cleaveOptions === null ? (
+          <Input
+            type="text"
+            placeholder={placeholder}
+            onChange={onChange}
+            maxLength={maxLength}
+            disabled={!editable}
+          />
+        ) : (
+          <Cleave
+            options={cleaveOptions}
+            type="text"
+            placeholder={placeholder}
+            onChange={onChange}
+            maxLength={maxLength}
+            disabled={!editable}
+            className="ant-input"
+          />
+        )}
       </Form.Item>
     </Col>
   );
 };
 
-const renderInputNationalIdCard = (item, index) => {
-  const {
-    name,
-    label,
-    // value,
-    onChange,
-    placeholder,
-    //   error,
-    editable = true,
-    //   hint = null,
-    maxLength,
-    span,
-    rule,
-    // type,
-    responsive_span,
-  } = item;
-  return (
-    <Col
-      span={span}
-      // key={index}
-      xs={responsive_span && responsive_span.xs}
-      sm={responsive_span && responsive_span.sm}
-      md={responsive_span && responsive_span.md}
-      lg={responsive_span && responsive_span.lg}
-      xl={responsive_span && responsive_span.xl}
-      xxl={responsive_span && responsive_span.xxl}
-    >
-      <Form.Item name={name} rules={rule} label={label}>
-        <Cleave
-          options={{ blocks: [1, 4, 5, 2, 1], delimiter: "-" }}
-          type="text"
-          placeholder={placeholder}
-          onChange={onChange}
-          maxLength={maxLength}
-          disabled={!editable}
-          className="ant-input"
-        />
-      </Form.Item>
-    </Col>
-  );
-};
+// const renderInputNationalIdCard = (item, index) => {
+//   const {
+//     name,
+//     label,
+//     // value,
+//     onChange,
+//     placeholder,
+//     //   error,
+//     editable = true,
+//     //   hint = null,
+//     maxLength,
+//     span,
+//     rule,
+//     // type,
+//     responsive_span,
+//   } = item;
+//   return (
+//     <Col
+//       span={span}
+//       // key={index}
+//       xs={responsive_span && responsive_span.xs}
+//       sm={responsive_span && responsive_span.sm}
+//       md={responsive_span && responsive_span.md}
+//       lg={responsive_span && responsive_span.lg}
+//       xl={responsive_span && responsive_span.xl}
+//       xxl={responsive_span && responsive_span.xxl}
+//     >
+//       <Form.Item name={name} rules={rule} label={label}>
+//         <Cleave
+//           options={{ blocks: [1, 4, 5, 2, 1], delimiter: "-" }}
+//           type="text"
+//           placeholder={placeholder}
+//           onChange={onChange}
+//           maxLength={maxLength}
+//           disabled={!editable}
+//           className="ant-input"
+//         />
+//       </Form.Item>
+//     </Col>
+//   );
+// };
 
 const renderInputNumber = (item, index) => {
   const {
@@ -179,53 +192,54 @@ const renderInputCascader = (item, index) => {
   );
 };
 
-const renderInputPhoneNumber = (item, index) => {
-  const {
-    name,
-    label,
-    // value,
-    onChange,
-    placeholder,
-    //   error,
-    editable = true,
-    //   hint = null,
-    maxLength,
-    span,
-    rule,
-    // type,
-    responsive_span,
-  } = item;
-  return (
-    <Col
-      span={span}
-      // key={index}
-      xs={responsive_span && responsive_span.xs}
-      sm={responsive_span && responsive_span.sm}
-      md={responsive_span && responsive_span.md}
-      lg={responsive_span && responsive_span.lg}
-      xl={responsive_span && responsive_span.xl}
-      xxl={responsive_span && responsive_span.xxl}
-    >
-      <Form.Item name={name} rules={rule} label={label}>
-        <Cleave
-          options={{ blocks: [3, 7], delimiter: "-" }}
-          type="text"
-          placeholder={placeholder}
-          onChange={onChange}
-          maxLength={maxLength}
-          disabled={!editable}
-          className="ant-input"
-        />
-      </Form.Item>
-    </Col>
-  );
-};
+// const renderInputPhoneNumber = (item, index) => {
+//   const {
+//     name,
+//     label,
+//     // value,
+//     onChange,
+//     placeholder,
+//     //   error,
+//     editable = true,
+//     //   hint = null,
+//     maxLength,
+//     span,
+//     rule,
+//     // type,
+//     responsive_span,
+//   } = item;
+//   return (
+//     <Col
+//       span={span}
+//       // key={index}
+//       xs={responsive_span && responsive_span.xs}
+//       sm={responsive_span && responsive_span.sm}
+//       md={responsive_span && responsive_span.md}
+//       lg={responsive_span && responsive_span.lg}
+//       xl={responsive_span && responsive_span.xl}
+//       xxl={responsive_span && responsive_span.xxl}
+//     >
+//       <Form.Item name={name} rules={rule} label={label}>
+//         <Cleave
+//           options={{ blocks: [3, 7], delimiter: "-" }}
+//           type="text"
+//           placeholder={placeholder}
+//           onChange={onChange}
+//           maxLength={maxLength}
+//           disabled={!editable}
+//           className="ant-input"
+//         />
+//       </Form.Item>
+//     </Col>
+//   );
+// };
 
 const renderDatePicker = (item, index) => {
   const {
     name,
     label,
-    // value,
+    dateFormat = "DD/MM/YYYY",
+    value = moment(moment().format(dateFormat), dateFormat),
     onChange,
     placeholder,
     //   error,
@@ -236,8 +250,7 @@ const renderDatePicker = (item, index) => {
     rule,
     // type,
     responsive_span,
-    dateFormat = "DD/MM/YYYY",
-    birthDateValue = moment(moment().format(dateFormat), dateFormat),
+    // birthDateValue = moment(moment().format(dateFormat), dateFormat),
   } = item;
   return (
     <Col
@@ -254,16 +267,11 @@ const renderDatePicker = (item, index) => {
       <Form.Item name={name} rules={rule} label={label}>
         <DatePicker
           // defaultValue={moment("2015/01/01", dateFormat)}
-          defaultValue={birthDateValue}
+          defaultValue={value}
           // defaultValue={moment(moment().format(dateFormat), dateFormat)}
-          value={birthDateValue}
+          value={value}
           format={dateFormat}
           placeholder={placeholder}
-          // onChange={onChange}
-          // onChange={(e) => {
-          //   console.log("eee;", e._d);
-          //   console.log("e;", moment(e._d).format(dateFormat));
-          // }}
           disabled={!editable}
           onChange={(e) => {
             if (e) onChange(moment(e._d).format(dateFormat));
@@ -404,10 +412,10 @@ const FormComponent = (props) => {
       return renderInputNumber(item, index);
     case "cascader":
       return renderInputCascader(item, index);
-    case "nationalIdCard":
-      return renderInputNationalIdCard(item, index);
-    case "phoneNumber":
-      return renderInputPhoneNumber(item, index);
+    // case "nationalIdCard":
+    //   return renderInputNationalIdCard(item, index);
+    // case "phoneNumber":
+    //   return renderInputPhoneNumber(item, index);
     case "datePicker":
       return renderDatePicker(item, index);
     case "uploadImage":

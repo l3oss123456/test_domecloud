@@ -190,7 +190,14 @@ const Covid19VaccineRegister = () => {
       rule: [
         {
           required: true,
-          message: "Please input name.",
+          message: Strings.getString("register.vaccine.name.error"),
+          whitespace: false,
+        },
+        {
+          pattern: new RegExp(/^[a-zA-Z_0-9ก-ฮะ-์]+$/),
+          message: Strings.getString(
+            "validate.error.message.specialCharacterAndSpace"
+          ),
         },
       ],
       onChange: () => {
@@ -207,7 +214,13 @@ const Covid19VaccineRegister = () => {
       rule: [
         {
           required: true,
-          message: "Please input lastname.",
+          message: Strings.getString("register.vaccine.lastname.error"),
+        },
+        {
+          pattern: new RegExp(/^[a-zA-Z_0-9ก-ฮะ-์]+$/),
+          message: Strings.getString(
+            "validate.error.message.specialCharacterAndSpace"
+          ),
         },
       ],
       onChange: () => {
@@ -221,19 +234,20 @@ const Covid19VaccineRegister = () => {
       placeholder: Strings.getString("register.vaccine.birthDate.placeholder"),
       // span: 14,
       responsive_span: { xs: 24, sm: 24, md: 24, lg: 12, xl: 12, xxl: 12 },
-      birthDateValue:
-        birthDateValue !== ""
-          ? birthDateValue
-          : moment(moment().format(dateFormat), dateFormat),
+      value: "",
+      // birthDateValue !== ""
+      //   ? birthDateValue
+      //   : moment(moment().format(dateFormat), dateFormat),
       rule: [
         {
           required: true,
-          message: "Please input birthDate.",
+          message: Strings.getString("register.vaccine.birthDate.error"),
         },
       ],
       onChange: (date) => {
         console.log(`birthDate`);
         console.log("date;", date);
+        console.log("birthDateValue;", birthDateValue);
       },
     },
     age: {
@@ -248,7 +262,7 @@ const Covid19VaccineRegister = () => {
       rule: [
         {
           required: true,
-          message: "Please input age.",
+          message: Strings.getString("register.vaccine.age.error"),
         },
       ],
       onChange: () => {
@@ -256,16 +270,36 @@ const Covid19VaccineRegister = () => {
       },
     },
     nationalId: {
-      type: "nationalIdCard",
+      type: "text",
       name: "nationalId",
       label: Strings.getString("register.vaccine.nationalId"),
       placeholder: Strings.getString("register.vaccine.nationalId.placeholder"),
       // span: 8,
       responsive_span: { xs: 24, sm: 24, md: 24, lg: 12, xl: 12, xxl: 12 },
+      cleaveOptions: { blocks: [1, 4, 5, 2, 1], delimiter: "-" },
       rule: [
         {
           required: true,
-          message: "Please input nationalId.",
+          message: Strings.getString("register.vaccine.nationalId.error"),
+        },
+        {
+          min: 17,
+          message: Strings.formatString(
+            Strings.getString("validate.error.message.minCharacter"),
+            {
+              min: 13,
+            }
+          ),
+        },
+        {
+          pattern: new RegExp(/^[a-zA-Z_0-9ก-ฮะ-์-]+$/),
+          message: Strings.getString(
+            "validate.error.message.specialCharacterAndSpace"
+          ),
+        },
+        {
+          pattern: new RegExp(/\d+/g),
+          message: Strings.getString("validate.error.message.inputOnlyNumber"),
         },
       ],
       onChange: () => {
@@ -273,7 +307,7 @@ const Covid19VaccineRegister = () => {
       },
     },
     phoneNumber: {
-      type: "phoneNumber",
+      type: "text",
       name: "phoneNumber",
       label: Strings.getString("register.vaccine.phoneNumber"),
       placeholder: Strings.getString(
@@ -281,10 +315,30 @@ const Covid19VaccineRegister = () => {
       ),
       // span: 8,
       responsive_span: { xs: 24, sm: 24, md: 24, lg: 12, xl: 12, xxl: 12 },
+      cleaveOptions: { blocks: [3, 7], delimiter: "-" },
       rule: [
         {
           required: true,
-          message: "Please input phoneNumber.",
+          message: Strings.getString("register.vaccine.phoneNumber.error"),
+        },
+        {
+          min: 11,
+          message: Strings.formatString(
+            Strings.getString("validate.error.message.minCharacter"),
+            {
+              min: 10,
+            }
+          ),
+        },
+        {
+          pattern: new RegExp(/\d+/g),
+          message: Strings.getString("validate.error.message.inputOnlyNumber"),
+        },
+        {
+          pattern: new RegExp(/^[a-zA-Z_0-9ก-ฮะ-์-]+$/),
+          message: Strings.getString(
+            "validate.error.message.specialCharacterAndSpace"
+          ),
         },
       ],
       onChange: () => {
@@ -302,7 +356,7 @@ const Covid19VaccineRegister = () => {
       rule: [
         {
           required: true,
-          message: "Please input address.",
+          message: Strings.getString("register.vaccine.address.error"),
         },
       ],
       onChange: () => {
@@ -319,7 +373,26 @@ const Covid19VaccineRegister = () => {
       rule: [
         {
           required: true,
-          message: "Please input postalCode.",
+          message: Strings.getString("register.vaccine.postalCode.error"),
+        },
+        {
+          min: 5,
+          message: Strings.formatString(
+            Strings.getString("validate.error.message.minCharacter"),
+            {
+              min: 5,
+            }
+          ),
+        },
+        {
+          pattern: new RegExp(/^[a-zA-Z_0-9ก-ฮะ-์-]+$/),
+          message: Strings.getString(
+            "validate.error.message.specialCharacterAndSpace"
+          ),
+        },
+        {
+          pattern: new RegExp(/\d+/g),
+          message: Strings.getString("validate.error.message.inputOnlyNumber"),
         },
       ],
       maxLength: 5,
@@ -332,19 +405,19 @@ const Covid19VaccineRegister = () => {
       name: "nationalIdImage",
       label: Strings.getString("register.vaccine.nationalIdImage"),
       // placeholder: "name",
-      span: 24,
-      // responsive_span: { xs: 24, lg: 12, xl: 12, xxl: 12 },
+      // span: 24,
+      responsive_span: { xs: 24, lg: 12, xl: 12, xxl: 12 },
       rule: [
         {
           required: true,
-          message: "Please choose image.",
+          message: Strings.getString("register.vaccine.nationalIdImage.error"),
         },
       ],
       maxLength: 1,
       fileList: fileList,
       setFileList: setFileList,
     },
-    // emergency call form
+    ////////////////////////////////// emergency call form //////////////////////////////////
     emergencyCall_name: {
       type: "text",
       name: "emergencyCall_name",
@@ -352,6 +425,14 @@ const Covid19VaccineRegister = () => {
       placeholder: Strings.getString("register.vaccine.name.placeholder"),
       // span: 10,
       responsive_span: { xs: 24, sm: 24, md: 24, lg: 12, xl: 12, xxl: 12 },
+      rule: [
+        {
+          pattern: new RegExp(/^[a-zA-Z_0-9ก-ฮะ-์]+$/),
+          message: Strings.getString(
+            "validate.error.message.specialCharacterAndSpace"
+          ),
+        },
+      ],
       onChange: () => {
         console.log(`name`);
       },
@@ -363,30 +444,82 @@ const Covid19VaccineRegister = () => {
       placeholder: Strings.getString("register.vaccine.lastname.placeholder"),
       // span: 14,
       responsive_span: { xs: 24, sm: 24, md: 24, lg: 12, xl: 12, xxl: 12 },
+      rule: [
+        {
+          pattern: new RegExp(/^[a-zA-Z_0-9ก-ฮะ-์]+$/),
+          message: Strings.getString(
+            "validate.error.message.specialCharacterAndSpace"
+          ),
+        },
+      ],
       onChange: () => {
         console.log(`last name`);
       },
     },
     emergencyCall_nationalId: {
-      type: "nationalIdCard",
+      type: "text",
       name: "emergencyCall_nationalId",
       label: Strings.getString("register.vaccine.nationalId"),
       placeholder: Strings.getString("register.vaccine.nationalId.placeholder"),
       // span: 8,
+      cleaveOptions: { blocks: [1, 4, 5, 2, 1], delimiter: "-" },
       responsive_span: { xs: 24, sm: 24, md: 24, lg: 12, xl: 12, xxl: 12 },
+      rule: [
+        {
+          min: 17,
+          message: Strings.formatString(
+            Strings.getString("validate.error.message.minCharacter"),
+            {
+              min: 13,
+            }
+          ),
+        },
+        {
+          pattern: new RegExp(/^[a-zA-Z_0-9ก-ฮะ-์-]+$/),
+          message: Strings.getString(
+            "validate.error.message.specialCharacterAndSpace"
+          ),
+        },
+        {
+          pattern: new RegExp(/\d+/g),
+          message: Strings.getString("validate.error.message.inputOnlyNumber"),
+        },
+      ],
       onChange: () => {
         console.log(`national id`);
       },
     },
     emergencyCall_phoneNumber: {
-      type: "phoneNumber",
+      type: "text",
       name: "emergencyCall_phoneNumber",
       label: Strings.getString("register.vaccine.phoneNumber"),
       placeholder: Strings.getString(
         "register.vaccine.phoneNumber.placeholder"
       ),
+      cleaveOptions: { blocks: [3, 7], delimiter: "-" },
       // span: 8,
       responsive_span: { xs: 24, sm: 24, md: 24, lg: 12, xl: 12, xxl: 12 },
+      rule: [
+        {
+          min: 11,
+          message: Strings.formatString(
+            Strings.getString("validate.error.message.minCharacter"),
+            {
+              min: 10,
+            }
+          ),
+        },
+        {
+          pattern: new RegExp(/^[a-zA-Z_0-9ก-ฮะ-์-]+$/),
+          message: Strings.getString(
+            "validate.error.message.specialCharacterAndSpace"
+          ),
+        },
+        {
+          pattern: new RegExp(/\d+/g),
+          message: Strings.getString("validate.error.message.inputOnlyNumber"),
+        },
+      ],
       onChange: () => {
         console.log(`phoneNumber`);
       },
@@ -411,6 +544,27 @@ const Covid19VaccineRegister = () => {
       // span: 10,
       responsive_span: { xs: 24, sm: 24, md: 24, lg: 12, xl: 12, xxl: 12 },
       maxLength: 5,
+      rule: [
+        {
+          min: 5,
+          message: Strings.formatString(
+            Strings.getString("validate.error.message.minCharacter"),
+            {
+              min: 5,
+            }
+          ),
+        },
+        {
+          pattern: new RegExp(/^[a-zA-Z_0-9ก-ฮะ-์-]+$/),
+          message: Strings.getString(
+            "validate.error.message.specialCharacterAndSpace"
+          ),
+        },
+        {
+          pattern: new RegExp(/\d+/g),
+          message: Strings.getString("validate.error.message.inputOnlyNumber"),
+        },
+      ],
       onChange: () => {
         console.log(`postalCode`);
       },
@@ -480,6 +634,7 @@ const Covid19VaccineRegister = () => {
           onFinish(values);
           // form.resetFields();
         }}
+        style={{ marginBottom: 100 }}
       >
         <FormCovid19VaccineRegister form={form} initialForm={initialForm} />
         <Footer
@@ -489,9 +644,9 @@ const Covid19VaccineRegister = () => {
         />
       </Form>
 
-      <Styles.section>
+      {/* <Styles.section>
         <TodoList />
-      </Styles.section>
+      </Styles.section> */}
     </Styles.screenContainer>
   ) : (
     <Styles.loading>
