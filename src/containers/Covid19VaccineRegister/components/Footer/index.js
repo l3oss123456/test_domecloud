@@ -1,14 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button, Row, Col } from "antd";
 import { Strings } from "../../../../cores/locals/index";
 import Styles from "../../styles";
 
-const FooterCovidVaccineRegister = ({
-  form,
-  setFileList,
-  setBirthDateValue,
-}) => {
-  //   const [form] = Form.useForm();
+const FooterCovidVaccineRegister = ({ form, clearForm }) => {
   return (
     <Styles.footer>
       <Row>
@@ -27,8 +23,7 @@ const FooterCovidVaccineRegister = ({
             }}
             onClick={() => {
               form.resetFields();
-              setFileList([]);
-              setBirthDateValue("");
+              clearForm();
             }}
           >
             {Strings.getString("register.vaccine.button.cancel")}

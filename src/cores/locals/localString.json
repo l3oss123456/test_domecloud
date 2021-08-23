@@ -142,5 +142,13 @@
   "register.vaccine.button.cancel": {
     "en": "cancel",
     "th": "ยกเลิก"
+  },
+  "register.vaccine.notification.message.success": {
+    "en": "Register success",
+    "th": "ลงทะเบียนสำเร็จ"
+  },
+  "register.vaccine.notification.description.success": {
+    "en": "You has been register for covid19 vaccine.",
+    "th": "คุณได้ลงทะเบียนสำหรับวัคซีนเรียบร้อยแล้ว"
   }
 }

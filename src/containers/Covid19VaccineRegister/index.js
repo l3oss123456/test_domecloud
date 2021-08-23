@@ -3,7 +3,7 @@ import {
   // useSelector,
   useDispatch,
 } from "react-redux";
-import { Form } from "antd";
+import { Form, notification } from "antd";
 import moment from "moment";
 import { Strings } from "../../cores/locals/index";
 import Loading from "../../components/Loading/index";
@@ -445,9 +445,12 @@ const Covid19VaccineRegister = () => {
     });
     return _address;
   };
-  // useEffect(() => {
-  //   dispatch(getCovidVaccineRegister());
-  // }, []);
+
+  const clearForm = () => {
+    form.resetFields();
+    setFileList([]);
+    setBirthDateValue("");
+  };
 
   useEffect(() => {
     if (address) {
@@ -474,16 +477,20 @@ const Covid19VaccineRegister = () => {
           let values = form.getFieldsValue();
           values.birthDate = moment(values.birthDate._d).format(dateFormat);
           onFinish(values);
-          // form.resetFields();
+          notification.info({
+            message: Strings.getString(
+              "register.vaccine.notification.message.success"
+            ),
+            description: Strings.getString(
+              "register.vaccine.notification.description.success"
+            ),
+          });
+          clearForm();
         }}
         style={{ marginBottom: 100 }}
       >
         <FormCovid19VaccineRegister form={form} initialForm={initialForm} />
-        <Footer
-          form={form}
-          setFileList={setFileList}
-          setBirthDateValue={setBirthDateValue}
-        />
+        <Footer form={form} clearForm={clearForm} />
       </Form>
 
       {/* <Styles.section>
