@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Space } from "antd";
 import pushUrl from "../../utils/pushUrl";
+import { Strings } from "../../cores/locals/index";
 import styles from "./styles";
 
 const SearchComponent = ({
@@ -55,7 +56,7 @@ const SearchComponent = ({
   return (
     <Space direction="vertical">
       <styles.search
-        placeholder="input search text"
+        placeholder={Strings.getString("search.placeholder")}
         onSearch={onSearch}
         allowClear
         //   style={{ width: "100vw" }}

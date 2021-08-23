@@ -25,9 +25,6 @@ const PaginationComponent = ({ dataSource, setPosts }) => {
   const optionsPagination = [10, 20, 30, 40, 50];
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(optionsPagination[0]);
-  //   const [isChangeData, setIsChangeData] = useState(true);
-
-  //   console.log("dataSource;", dataSource);
 
   useEffect(() => {
     const currentPosts = getCurrentPosts(dataSource, currentPage, postsPerPage);
@@ -60,6 +57,7 @@ const PaginationComponent = ({ dataSource, setPosts }) => {
 
   const onChange = (pageNumber) => {
     setCurrentPage(pageNumber);
+    console.log(setPostsPerPage);
   };
 
   //   const onShowSizeChange = (current, size) => {

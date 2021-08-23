@@ -9,7 +9,7 @@ import { Strings } from "../../cores/locals/index";
 import Loading from "../../components/Loading/index";
 import { createCovidVaccineRegister } from "../../actions/covidVaccineRegister";
 import address from "../../utils/address";
-import TodoList from "./todo";
+// import TodoList from "./todo";
 import FormCovid19VaccineRegister from "./components/Form/index";
 import Footer from "./components/Footer/index";
 import Styles from "./styles";

@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { Button, Row, Col } from "antd";
 import { Strings } from "../../../../cores/locals/index";
 import Styles from "../../styles";

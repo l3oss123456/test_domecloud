@@ -150,5 +150,21 @@
   "register.vaccine.notification.description.success": {
     "en": "You has been register for covid19 vaccine.",
     "th": "คุณได้ลงทะเบียนสำหรับวัคซีนเรียบร้อยแล้ว"
+  },
+  "home.title": {
+    "en": "List Registered name",
+    "th": "รายชื่อผู้ลงทะเบียน"
+  },
+  "home.table.title1": {
+    "en": "Name",
+    "th": "ชื่อ"
+  },
+  "home.table.title2": {
+    "en": "Last name",
+    "th": "นามสกุล"
+  },
+  "search.placeholder": {
+    "en": "Search...",
+    "th": "ค้นหา..."
   }
 }
